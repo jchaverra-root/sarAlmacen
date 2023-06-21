@@ -16,6 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('descripcion');
             $table->year('periodo');
+            $table->date('entrada');
+            $table->date('salida');
             $table->string('origen');
             $table->string('destino');
             $table->string('nit');

@@ -12,6 +12,8 @@ class Inventario extends Model
     protected $fillable = [
         'descripcion',
         'periodo',
+        'entrada',
+        'salida',
         'origen',
         'destino',
         'nit',
