@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('salida');
             $table->string('origen');
             $table->string('destino');
+            $table->string('ubicacionActual');
             $table->string('nit');
             $table->string('codigoProducto');
             $table->string('serialProducto');

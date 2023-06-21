@@ -16,6 +16,7 @@ class Inventario extends Model
         'salida',
         'origen',
         'destino',
+        'ubicacionActual',
         'nit',
         'codigoProducto',
         'serialProducto',
