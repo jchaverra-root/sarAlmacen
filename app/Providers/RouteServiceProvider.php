@@ -19,22 +19,101 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/home';
 
+    protected $namespace = 'App\\Http\\Controllers';
+    
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      */
-    public function boot(): void
+    // public function boot(): void
+    // {
+    //     RateLimiter::for('api', function (Request $request) {
+    //         return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
+    //     });
+
+    //     $this->routes(function () {
+    //         Route::middleware('api')
+    //             ->namespace($this->namespace)
+    //             ->prefix('api')
+    //             ->group(base_path('routes/api.php'));
+
+    //         Route::middleware('web')
+    //             ->namespace($this->namespace)
+    //             ->group(base_path('routes/web.php'));
+    //     });
+    // }
+
+
+    public function boot()
+    {
+        $this->configureRateLimiting();
+    }
+
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapApiRoutes();
+
+        $this->mapWebRoutes();
+
+        // $this->mapPanelRoutes();
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
+    }
+
+
+    /**
+     * Define the "admin panel" routes for the application.
+     *
+     * @return void
+     */
+    // protected function mapPanelRoutes()
+    // {
+    //     Route::prefix('panel')
+    //         ->middleware(['web', 'auth', 'is.admin', 'verified'])
+    //         ->namespace("{$this->namespace}\Panel")
+    //         ->group(base_path('routes/panel.php'));
+    // }
+
+    /**
+     * Configure the rate limiters for the application.
+     *
+     * @return void
+     */
+    protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
-
-        $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
-
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+            return Limit::perMinute(60);
         });
     }
 }
