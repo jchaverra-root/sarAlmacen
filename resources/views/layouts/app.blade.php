@@ -26,7 +26,7 @@
                 Inventario
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Entrada</a></li>
+                <li><a class="dropdown-item" href="{{ route('inventarios.index') }}">Entrada</a></li>
                 <li><a class="dropdown-item" href="#">Salida</a></li>
                 <li><a class="dropdown-item" href="#">Traslado</a></li>
                 <li><a class="dropdown-item" href="#">Bajas</a></li>

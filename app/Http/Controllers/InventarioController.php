@@ -13,13 +13,13 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('inventarios.index')->with(['inventarios' => Inventario::orderby('id','DESC')->get()]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function guardar()
     {
         //
     }
@@ -27,7 +27,7 @@ class InventarioController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreInventarioRequest $request)
+    public function mostrar(StoreInventarioRequest $request)
     {
         //
     }
@@ -43,7 +43,7 @@ class InventarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Inventario $inventario)
+    public function editar(Inventario $inventario)
     {
         //
     }
@@ -51,7 +51,7 @@ class InventarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateInventarioRequest $request, Inventario $inventario)
+    public function cargar(UpdateInventarioRequest $request, Inventario $inventario)
     {
         //
     }
@@ -59,7 +59,7 @@ class InventarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Inventario $inventario)
+    public function eliminar(Inventario $inventario)
     {
         //
     }
