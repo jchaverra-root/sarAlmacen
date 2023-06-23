@@ -11,6 +11,7 @@
                             <th>Ubicacion Actual</th>
                             <th>NIT</th>
                             <th>Descripcion</th>
+                            <th>Periodo</th>
                             <!-- <th class="text-center">Acciones</th> -->
                         </tr>
                     </thead>
@@ -21,6 +22,7 @@
                                 <td>{{$inventario->ubicacionActual}}</td> 
                                 <td>{{$inventario->nit}}</td> 
                                 <td>{{$inventario->descripcion}}</td>
+                                <td>{{$inventario->periodo}}</td>
                                 <!-- <td class="text-center">
 
                                 </td>   -->

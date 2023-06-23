@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome.index');
 
 // INICIO RUTAS SISTEMA DE AUTENTIFICACION Y VISTA PRINCIPAL DEL SISTEMA //
 
