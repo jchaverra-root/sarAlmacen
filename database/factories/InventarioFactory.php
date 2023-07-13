@@ -19,6 +19,7 @@ class InventarioFactory extends Factory
     public function definition(): array
     {
         return [
+            'nombre' => $this->faker->words(3, true),
             'descripcion' => $this->faker->sentence(5),
             'periodo' => $this->faker->dateTimeBetween('2000-01-01', 'now')->format('Y'),
             'entrada' => $this->faker->date('Y-m-d'),

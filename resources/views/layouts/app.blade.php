@@ -26,7 +26,18 @@
             </li>
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Inventario
+                Almacen
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{ route('inventarios.index') }}">Entrada</a></li>
+                <li><a class="dropdown-item" href="#">Salida</a></li>
+                <li><a class="dropdown-item" href="#">Traslado</a></li>
+                <li><a class="dropdown-item" href="#">Bajas</a></li>
+            </ul>
+            </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tecnologia
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{{ route('inventarios.index') }}">Entrada</a></li>
