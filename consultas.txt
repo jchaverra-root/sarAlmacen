@@ -1,0 +1,7 @@
+INSERT ENTREGA DE EQUIPOS
+
+INSERT INTO `entrega_equipos_tecnologias` (`id`, `fechaEntrega`, `tipoNovedad`, `ubicacion`, `idFuncionario`, `idEquipo`, `proceso`, `observaciones`, `created_at`, `updated_at`) VALUES (NULL, '2023-07-26', 'ASIGNADO', 'BASE YOPAL', '123', '1', 'HSEQ', 'N/A', '2023-07-27 08:37:11', '2023-07-27 08:37:11');
+
+SELECT ENTREGAS POR EQUIPOS
+
+SELECT et.id, et.tipo, et.marca, GROUP_CONCAT(eet.id) AS entregas_por_equipo FROM equipos_tecnologias et LEFT JOIN entrega_equipos_tecnologias eet ON et.id = eet.idEquipo GROUP BY et.id, et.tipo, et.marca;

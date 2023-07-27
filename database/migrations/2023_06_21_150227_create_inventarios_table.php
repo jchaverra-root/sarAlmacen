@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('nombre');
             $table->string('descripcion');
             $table->year('periodo');
@@ -27,6 +26,7 @@ return new class extends Migration
             $table->string('serialProducto');
             $table->integer('cantidad');
             $table->decimal('precioUnitario', 12, 2);
+            $table->timestamps();
         });
     }
 

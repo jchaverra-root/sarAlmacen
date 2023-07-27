@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\equiposTecnologia;
+use App\Models\entregaEquiposTecnologia;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +21,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Inventario::factory(95000)->create();
+        equiposTecnologia::factory(5)->create();
+        // entregaEquiposTecnologia::factory(5)->create();
+        // \App\Models\Inventario::factory(900)->create();
     }
 }

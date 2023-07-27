@@ -11,10 +11,20 @@ class InventarioController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     return view('inventarios.index')->with(['inventarios' => Inventario::orderby('id','DESC')->get()]);
+    // }
+
     public function index()
     {
-        return view('inventarios.index')->with(['inventarios' => Inventario::orderby('id','DESC')->get()]);
+        $inventarios = Inventario::orderBy('id', 'DESC')->get();
+        if (request()->ajax()) {
+            return view('inventarios.lista')->with(['inventarios' => $inventarios]);
+        }
+        return view('inventarios.index')->with(['inventarios' => $inventarios]);
     }
+
 
     /**
      * Show the form for creating a new resource.

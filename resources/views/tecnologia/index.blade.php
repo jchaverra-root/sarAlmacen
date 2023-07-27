@@ -2,28 +2,44 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center">ESTE ES EL MENU PRINCIPAL</h1>
+        <h1 class="text-center">ESTE ES EL MENU IT</h1>
         <div id="inventarios-container">
             <div class="table-responsive">
                 <table class="table table-bordered" id="tablaIndex">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID Equipo</th>
                             <th>Ubicacion Actual</th>
-                            <th>NIT</th>
-                            <th>Descripcion</th>
-                            <th>Periodo</th>
+                            <th>Tipo</th>
+                            <th>ID Usuario</th>
+                            <th>Marca</th>
+                            <th>ID Entrega</th>
                             <!-- <th class="text-center">Acciones</th> -->
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($inventarios as $inventario)
+                        @foreach ($inventarioTecnologia as $inventario)
                             <tr>
                                 <td>{{$inventario->id}}</td>
                                 <td>{{$inventario->ubicacionActual}}</td>
-                                <td>{{$inventario->nit}}</td>
-                                <td>{{$inventario->descripcion}}</td>
-                                <td>{{$inventario->periodo}}</td>
+                                <td>{{$inventario->tipo}}</td>
+                                <td>{{$inventario->idUsuario}}</td>
+                                <td>{{$inventario->marca}}</td>
+                                <td>
+                                    @php
+                                    $entregas = $inventario->entregas_por_equipo ? explode(',', $inventario->entregas_por_equipo) : null;
+                                    @endphp
+                                    @if ($entregas)
+                                        @foreach ($entregas as $entregaId)
+                                            <a href="#">{{ $entregaId }}</a>
+                                            @if (!$loop->last)
+                                                /
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        NO ASIGNADO
+                                    @endif
+                                </td>
                                 <!-- <td class="text-center">
                                 </td>   -->
                             </tr>
